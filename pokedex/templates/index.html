@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Contenedor de columnas -->
+    <div class="column-container">
+        <!-- Columna para la primera generación -->
+        <div class="column">
+            <h2 class="generation-title">Primera Generación</h2>
+            <div class="pokemon-list">
+                {% for pokemon in pokemon_data[:151] %}
+                <!-- Elemento de Pokémon -->
+                <div class="pokemon-item">
+                    <a href="{{ url_for('pokemon', pokemon_id=pokemon['id']) }}">
+                        <!-- Imagen del Pokémon -->
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon['id'] }}.png" alt="{{ pokemon['name'] }}">
+                        <!-- Número del Pokémon -->
+                        <span class="pokemon-number">{{ pokemon['id'] }}</span>
+                        <!-- Nombre del Pokémon -->
+                        <span class="pokemon-name">{{ pokemon['name'] }}</span>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Columna para la segunda generación -->
+        <div class="column">
+            <h2 class="generation-title">Segunda Generación</h2>
+            <div class="pokemon-list">
+                {% for pokemon in pokemon_data[151:] %}
+                <!-- Elemento de Pokémon -->
+                <div class="pokemon-item">
+                    <a href="{{ url_for('pokemon', pokemon_id=pokemon['id']) }}">
+                        <!-- Imagen del Pokémon -->
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{ pokemon['id'] }}.png" alt="{{ pokemon['name'] }}">
+                        <!-- Número del Pokémon -->
+                        <span class="pokemon-number">{{ pokemon['id'] }}</span>
+                        <!-- Nombre del Pokémon -->
+                        <span class="pokemon-name">{{ pokemon['name'] }}</span>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

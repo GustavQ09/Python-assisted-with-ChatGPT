@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokédex </title>
+    <!-- Vinculación del archivo CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Vinculación del logo de la Pokédex -->
+    <link rel="icon" href="{{ url_for('static', filename='pokedex-logo.png') }}" type="image/png">
+</head>
+<body>
+    <div id="header">
+        <!-- Encabezado con el título de la Pokédex -->
+        <h1>Pokédex - Primera y Segunda Generacion</h1>
+    </div>
+    <div id="content">
+        <!-- Contenido de la página -->
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

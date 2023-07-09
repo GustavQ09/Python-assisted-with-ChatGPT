@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="pokemon-info">
+        <!-- Título del Pokémon -->
+        <h2>{{ pokemon_data['name'] }}</h2>
+        <!-- Imagen del Pokémon -->
+        <img src="{{ pokemon_data['image'] }}" alt="{{ pokemon_data['name'] }}">
+        <!-- Habilidades del Pokémon -->
+        <p><strong>Abilities:</strong> {{ pokemon_data['abilities']|join(', ') }}</p>
+        <!-- Estadísticas del Pokémon -->
+        <p><strong>Stats:</strong></p>
+        <ul>
+            {% for stat, value in pokemon_data['stats'].items() %}
+            <li>{{ stat }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+        <!-- Descripción del Pokémon -->
+        <p><strong>Description:</strong> {{ pokemon_data['description'] }}</p>
+
+        <!-- Botones de navegación -->
+        <div class="pokemon-info">
+            <div class="btn-group">
+                {% if pokemon_data['id'] > 1 %}
+                    <!-- Botón para el Pokémon anterior -->
+                    <a href="{{ url_for('pokemon', pokemon_id=pokemon_data['id'] - 1) }}" class="btn"><-- Pokemon Anterior</a>
+                {% endif %}
+                <!-- Botón para el Pokémon siguiente -->
+                <a href="{{ url_for('pokemon', pokemon_id=pokemon_data['id'] + 1) }}" class="btn">Siguiente Pokemon --></a>
+            </div>
+
+            <!-- Botón para volver al inicio -->
+            <a href="{{ url_for('index') }}" class="btn">Volver al Inicio</a>
+        </div>
+    </div>
+{% endblock %}
