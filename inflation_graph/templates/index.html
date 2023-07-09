@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gráfico de Inflación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F0F0F0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 30px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        .source {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gráfico de Inflación en Argentina, UE, EE.UU. y el Mundo</h1>
+    <img src="{{ url_for('static', filename='inflacion.png') }}" alt="Gráfico de Inflación">
+    <div class="source">
+        Fuente: <a href="https://www.datosmundial.com/america/argentina/inflacion.php" target="_blank">datosmundial.com</a>
+    </div>
+</body>
+</html>
