@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor de Divisas</title>
+         <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            width: auto;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Divisas</h1>
+
+    <!-- Formulario para realizar la conversión -->
+    <form method="POST" action="/">
+        <label for="from_currency">Moneda de origen:</label>
+        <select name="from_currency" id="from_currency">
+            <option value="USD">Dólares (USD)</option>
+            <option value="EUR">Euros (EUR)</option>
+            <option value="CNY">Yuanes (CNY)</option>
+            <option value="JPY">Yenes (JPY)</option>
+        </select>
+
+        <br><br>
+
+        <label for="to_currency">Moneda de destino:</label>
+        <select name="to_currency" id="to_currency">
+            <option value="USD">Dólares (USD)</option>
+            <option value="EUR">Euros (EUR)</option>
+            <option value="CNY">Yuanes (CNY)</option>
+            <option value="JPY">Yenes (JPY)</option>
+        </select>
+
+        <br><br>
+
+        <label for="amount">Cantidad:</label>
+        <input type="text" name="amount" id="amount">
+
+        <br><br>
+
+        <input type="submit" value="Convertir">
+    </form>
+
+    <!-- Muestra el resultado de la conversión si está disponible -->
+    {% if error_message %}
+    <h2>Error:</h2>
+    <p>{{ error_message }}</p>
+{% endif %}
+
+
+    {% if result %}
+    <h2>Resultado:</h2>
+    <p>{{ result['result'] }}</p>
+    {% endif %}
+</body>
+</html>
