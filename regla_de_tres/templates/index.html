@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de regla de tres</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Establece la fuente para el cuerpo del documento */
+            background-color: #f5f5f5; /* Color de fondo del cuerpo del documento */
+            text-align: center; /* Centra el contenido en la página */
+        }
+        h1 {
+            margin-top: 50px; /* Margen superior del título principal */
+        }
+        .container {
+            display: inline-block; /* Hace que el contenedor sea un bloque en línea */
+            margin-top: 50px; /* Margen superior del contenedor */
+            padding: 20px; /* Espaciado interno del contenedor */
+            background-color: #ffffff; /* Color de fondo del contenedor */
+            border-radius: 5px; /* Borde redondeado del contenedor */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra del contenedor */
+            width: 400px; /* Ancho del contenedor */
+        }
+        form {
+            margin-top: 20px; /* Margen superior del formulario dentro del contenedor */
+            text-align: left; /* Alineación del texto del formulario a la izquierda */
+        }
+        label {
+            display: inline-block; /* Hace que las etiquetas sean bloques en línea */
+            margin-bottom: 5px; /* Margen inferior de las etiquetas */
+            font-weight: bold; /* Establece el peso de la fuente en negrita */
+            color: #333333; /* Color de texto de las etiquetas */
+        }
+        input[type="text"] {
+            padding: 5px; /* Espaciado interno de los campos de texto */
+            font-size: 14px; /* Tamaño de fuente de los campos de texto */
+            border-radius: 3px; /* Borde redondeado de los campos de texto */
+            border: 1px solid #cccccc; /* Borde de los campos de texto */
+            width: 100%; /* Ancho de los campos de texto */
+        }
+        input[type="submit"] {
+            padding: 8px 20px; /* Espaciado interno del botón de enviar */
+            font-size: 16px; /* Tamaño de fuente del botón de enviar */
+            font-weight: bold; /* Establece el peso de la fuente en negrita */
+            background-color: #4caf50; /* Color de fondo del botón de enviar */
+            color: #ffffff; /* Color de texto del botón de enviar */
+            border: none; /* Quita el borde del botón de enviar */
+            border-radius: 4px; /* Borde redondeado del botón de enviar */
+            cursor: pointer; /* Cambia el cursor al pasar por encima del botón de enviar */
+        }
+        .result {
+            margin-top: 20px; /* Margen superior del resultado */
+            font-size: 18px; /* Tamaño de fuente del resultado */
+            color: #333333; /* Color de texto del resultado */
+        }
+        .error {
+            color: #ff0000; /* Color de texto del mensaje de error */
+            font-size: 16px; /* Tamaño de fuente del mensaje de error */
+            font-weight: bold; /* Establece el peso de la fuente en negrita */
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de regla de tres</h1>
+    <div class="container">
+        <form method="post" action="/"> <!-- Formulario que envía los datos utilizando el método POST al servidor Flask -->
+            <label for="numero1">Número 1:</label> <!-- Etiqueta para el primer número -->
+            <br>
+            <input type="text" id="numero1" name="numero1" required> <!-- Campo de texto para ingresar el primer número -->
+            <br><br>
+            <label for="numero2">Número 2:</label> <!-- Etiqueta para el segundo número -->
+            <br>
+            <input type="text" id="numero2" name="numero2" required> <!-- Campo de texto para ingresar el segundo número -->
+            <br><br>
+            <label for="numero3">Número 3:</label> <!-- Etiqueta para el tercer número -->
+            <br>
+            <input type="text" id="numero3" name="numero3" required> <!-- Campo de texto para ingresar el tercer número -->
+            <br><br>
+            <input type="submit" value="Calcular"> <!-- Botón de enviar el formulario -->
+        </form>
+        {% if resultado %} <!-- Si hay un resultado, mostrarlo -->
+            <div class="result">El resultado es: {{ resultado }}</div>
+        {% endif %}
+        {% if error %} <!-- Si hay un mensaje de error, mostrarlo -->
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
